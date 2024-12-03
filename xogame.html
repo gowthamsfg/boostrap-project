@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<style>
+
+.xo{
+  text-align: center;
+  font-size: xx-large;
+}
+.inp{
+ height: 100px;
+ width: 100px;
+ margin: 15px;
+ font-size: xx-large;
+}
+/* From Uiverse.io by themrsami */ 
+.container {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0000 18.75%, #3b82f6 0 31.25%, #0000 0),
+    linear-gradient(45deg, #0000 18.75%, #3b82f6 0 31.25%, #0000 0),
+    linear-gradient(135deg, #0000 18.75%, #3b82f6 0 31.25%, #0000 0),
+    linear-gradient(45deg, #0000 18.75%, #3b82f6 0 31.25%, #0000 0);
+  background-size: 60px 60px;
+  background-position:
+    0 0,
+    0 0,
+    30px 30px,
+    30px 30px;
+  animation: slide 4s linear infinite;
+}
+
+@keyframes slide {
+  to {
+    background-position:
+      60px 0,
+      60px 0,
+      90px 30px,
+      90px 30px;
+  }
+}
+/* From Uiverse.io by cssbuttons-io */ 
+button {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:active,
+button:hover {
+  outline: 0;
+}
+
+button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+button:hover span {
+  background: none;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.but{
+  position: relative;
+  left: 700px;
+}
+.fon{
+  font-style: italic;
+  color: white;
+  word-spacing: 1px;
+}
+.ss{
+  background-image: url(pngtree-xo-picture-image_3173407.jpg);
+}
+.fon{
+  background-image: url(OIP.jpg);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+body{
+  cursor: url('icons8-cursor-100.png'),auto;
+}
+</style>
+</head>
+<body class="ss" >
+<div class="card">
+ <div class="xo"> 
+  <h1 class="fon">welcome to xo</h1>
+  <h2 class="fon" id="disp">tap the button</h2>
+  <div class="card">
+  <input class="inp" type="text" id="box1" onfocus="bo1()">  
+  <input class="inp" type="text" id="box2" onfocus="bo2()"> 
+  <input class="inp" type="text" id="box3" onfocus="bo3()"> <br>
+  <input class="inp" type="text" id="box4" onfocus="bo4()">
+  <input class="inp" type="text" id="box5" onfocus="bo5()"> 
+  <input class="inp" type="text" id="box6" onfocus="bo6()"> <br>
+  <input class="inp" type="text" id="box7" onfocus="bo7()"> 
+  <input class="inp" type="text" id="box8" onfocus="bo8()"> 
+  <input class="inp" type="text" id="box9" onfocus="bo9()"> 
+</div>
+  <h2 class="fon" id="sg">who is gonna win</h2>
+  <button class="but" onclick="myfun()">
+    <span class="text fon">reset</span>
+  </button>
+   
+</div> 
+</div>
+
+  <script>
+
+var box1 = document.getElementById("box1")
+var box2 = document.getElementById("box2")
+var box3 = document.getElementById("box3")
+var box4 = document.getElementById("box4")
+var box5 = document.getElementById("box5")
+var box6 = document.getElementById("box6")
+var box7 = document.getElementById("box7")
+var box8 = document.getElementById("box8")
+var box9 = document.getElementById("box9")
+
+var a = 1
+function bo1() {
+  if (a==1) {
+    box1.value="x"
+    box1.disabled=true
+    box1.style.textAlign="center"
+    box1.style.backgroundColor="green"
+    box1.style.color="white"
+    document.getElementById("disp").innerHTML="o turn"
+    a=2
+  }
+  else{
+    box1.value="o"
+    box1.disabled=true
+    box1.style.textAlign="center"
+    box1.style.color="white"
+    box1.style.backgroundColor='red'
+    a=1
+    document.getElementById("disp").innerHTML="x turn"
+
+  }
+  if (box1.value=='x' && box2.value=='x' && box3.value=='x' || box1.value=='x' && box4.value=='x' && box7.value=='x' ||  box1.value=='x' && box5.value=='x' && box9.value=='x') {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+   document.getElementById("disp").innerHTML="game finished"
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if ( box1.value=='o' && box2.value=='o' && box3.value=='o' || box1.value=='o' && box4.value=='o' && box7.value=='o' ||  box1.value=='o' && box5.value=='o' && box9.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+
+
+}
+function bo2() {
+  if (a==1) {
+    box2.value="x"
+    box2.disabled=true
+    box2.style.textAlign="center"
+    box2.style.backgroundColor="green"
+    box2.style.color="white"
+    a=2
+    document.getElementById("disp").innerHTML="o turn"
+
+  }
+  else{
+    box2.value="o"
+    box2.disabled=true
+    box2.style.textAlign="center"
+    box2.style.color="white"
+    box2.style.backgroundColor='red'
+    a=1
+    document.getElementById("disp").innerHTML="x turn"
+
+  }
+  if (box1.value=='x' && box2.value=='x' && box3.value=='x' ||  box2.value=='x' && box5.value=='x' && box8.value=='x' ) {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+  document.getElementById("disp").innerHTML="game finished"
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box1.value=='o' && box2.value=='o' && box3.value=='o' || box2.value=='o' && box5.value=='o' && box8.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+}
+function bo3() {
+  if (a==1) {
+    box3.value="x"
+    box3.disabled=true
+    box3.style.textAlign="center"
+    box3.style.backgroundColor="green"
+    box3.style.color="white"
+    document.getElementById("disp").innerHTML="o turn"
+
+    a=2
+  }
+  else{
+    box3.value="o"
+    box3.disabled=true
+    box3.style.textAlign="center"
+     box3.style.color="white"
+    box3.style.backgroundColor='red'
+    document.getElementById("disp").innerHTML="x turn"
+
+    a=1
+  }
+  if (box1.value=='x' && box2.value=='x' && box3.value=='x' ||  box3.value=='x' && box6.value=='x' && box9.value=='x' ||  box3.value=='x' && box5.value=='x' && box7.value=='x') {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box1.value=='o' && box2.value=='o' && box3.value=='o' || box3.value=='o' && box6.value=='o' && box9.value=='o' ||box3.value=='o' && box5.value=='o' && box7.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+}
+function bo4() {
+  if (a==1) {
+    box4.value="x"
+    box4.disabled=true
+    box4.style.textAlign="center"
+    box4.style.backgroundColor="green"
+    box4.style.color="white"
+    document.getElementById("disp").innerHTML="o turn"
+
+    a=2
+  }
+  else{
+    box4.value="o"
+    box4.disabled=true
+    box4.style.textAlign="center"
+     box4.style.color="white"
+    box4.style.backgroundColor='red'
+    document.getElementById("disp").innerHTML="x turn"
+
+    a=1
+  }
+  if (box4.value=='x' && box5.value=='x' && box6.value=='x' ||  box1.value=='x' && box4.value=='x' && box7.value=='x' ) {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box4.value=='o' && box5.value=='o' && box6.value=='o' || box1.value=='o' && box4.value=='o' && box7.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+}
+function bo5() {
+  if (a==1) {
+    box5.value="x"
+    box5.disabled=true
+    box5.style.textAlign="center"
+    box5.style.backgroundColor="green"
+    box5.style.color="white"
+    a=2
+    document.getElementById("disp").innerHTML="o turn"
+
+  }
+  else{
+    box5.value="o"
+    box5.disabled=true
+    box5.style.textAlign="center"
+    box5.style.color="white"
+    box5.style.backgroundColor='red'
+    a=1
+    document.getElementById("disp").innerHTML="x turn"
+
+  }
+  if (box4.value=='x' && box5.value=='x' && box6.value=='x' ||  box2.value=='x' && box5.value=='x' && box8.value=='x' ||  box1.value=='x' && box5.value=='x' && box9.value=='x' ||  box3.value=='x' && box5.value=='x' && box7.value=='x' ) {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box4.value=='o' && box5.value=='o' && box6.value=='o' || box2.value=='o' && box5.value=='o' && box8.value=='o' || box1.value=='o' && box5.value=='o' && box9.value=='o' || box3.value=='o' && box5.value=='o' && box7.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true  
+}
+}
+function bo6() {
+  if (a==1) {
+    box6.value="x"
+    box6.disabled=true
+    box6.style.textAlign="center"
+    box6.style.backgroundColor="green"
+    box6.style.color="white"
+    document.getElementById("disp").innerHTML="o turn"
+
+    a=2
+  }
+  else{
+    box6.value="o"
+    box6.disabled=true
+    box6.style.textAlign="center"
+    box6.style.color="white"
+    box6.style.backgroundColor='red'
+    document.getElementById("disp").innerHTML="x turn"
+
+    a=1
+  }
+  if (box4.value=='x' && box5.value=='x' && box6.value=='x' ||  box3.value=='x' && box6.value=='x' && box9.value=='x' ) {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box4.value=='o' && box5.value=='o' && box6.value=='o' ||  box3.value=='o' && box6.value=='o' && box9.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true 
+}
+}
+function bo7() {
+  if (a==1) {
+    box7.value="x"
+    box7.disabled=true
+    box7.style.textAlign="center"
+    box7.style.backgroundColor="green"
+    box7.style.color="white"
+    document.getElementById("disp").innerHTML="o turn"
+
+    a=2
+  }
+  else{
+    box7.value="o"
+    box7.disabled=true
+    box7.style.textAlign="center"
+    box7.style.color="white"
+    box7.style.backgroundColor='red'
+    document.getElementById("disp").innerHTML="x turn"
+
+    a=1
+  }
+  if (box7.value=='x' && box8.value=='x' && box9.value=='x' ||  box1.value=='x' && box4.value=='x' && box7.value=='x' ||  box3.value=='x' && box5.value=='x' && box7.value=='x' ) {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box7.value=='o' && box8.value=='o' && box9.value=='o' || box1.value=='o' && box4.value=='o' && box7.value=='o' || box3.value=='o' && box5.value=='o' && box7.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+}
+function bo8() {
+  if (a==1) {
+    box8.value="x"
+    box8.disabled=true
+    box8.style.textAlign="center"
+    box8.style.backgroundColor="green"
+    box8.style.color="white"
+    document.getElementById("disp").innerHTML="o turn"
+    a=2
+
+  }
+  else{
+    box8.value="o"
+    box8.disabled=true
+    box8.style.textAlign="center"
+    box8.style.color="white"
+    box8.style.backgroundColor='red'
+    document.getElementById("disp").innerHTML="x turn"
+    a=1
+
+  }
+  if (box7.value=='x' && box8.value=='x' && box9.value=='x' ||  box2.value=='x' && box5.value=='x' && box8.value=='x') {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box7.value=='o' && box8.value=='o' && box9.value=='o' || box2.value=='o' && box5.value=='o' && box8.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+}
+function bo9() {
+  if (a==1) {
+    box9.value="x"
+    box9.disabled=true
+    box9.style.textAlign="center"
+    box9.style.backgroundColor="green"
+    box9.style.color="white"
+    document.getElementById("disp").innerHTML="o turn"
+    a=2
+
+
+  }
+  else{
+    box9.value="o"
+    box9.disabled=true
+    box9.style.textAlign="center"
+    box9.style.color="white"
+    box9.style.backgroundColor='red'
+    a=1
+    document.getElementById("disp").innerHTML="x turn"
+
+  }
+  if (box7.value=='x' && box8.value=='x' && box9.value=='x' ||  box3.value=='x' && box6.value=='x' && box9.value=='x' ||  box1.value=='x' && box5.value=='x' && box9.value=='x'  ) {
+  document.getElementById('sg').innerHTML="x win"
+  document.getElementById('sg').style.color="green"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+else if (box7.value=='o' && box8.value=='o' && box9.value=='o' || box3.value=='o' && box6.value=='o' && box9.value=='o' || box1.value=='o' && box5.value=='o' && box9.value=='o') {
+  document.getElementById('sg').innerHTML="o win"
+  document.getElementById('sg').style.color="red"
+  document.getElementById("disp").innerHTML="game finished"
+
+  box1.disabled=true
+  box2.disabled=true
+  box3.disabled=true
+  box4.disabled=true
+  box5.disabled=true
+  box6.disabled=true
+  box7.disabled=true
+  box8.disabled=true
+  box9.disabled=true
+}
+}
+function myfun() {
+  location.reload()
+}
+
+
+
+
+// function otp() {
+  
+//   var op = Math.floor(Math.random()*10000);
+//   localStorage.setItem("getotp",op)
+//   window.location.assign("timetable.html")
+// }
+
+
+// function myfu() {
+//   var user = document.getElementById("user").value
+//   var pass = document.getElementById("pass").value
+
+//   if(user=='' || pass==''){
+        
+//   }
+//   else{
+//     localStorage.setItem("user",user)
+//     
+//   }
+// }
+// var a = '  iruunga bhai  '
+// console.log(a.replace("bhai","hii"));
+// console.log(a.includes("iruunga"));
+// console.log(a);
+// console.log(a.trim());
+
+// var ar = [1,2,3,4]
+// var arr = [...ar]
+// console.log(arr);
+
+
+
+
+
+// 
+// function butt() {
+//     window.location.assign("timetable.html")
+//   }
+
+
+setInterval(() => {},1000);
+
+
+
+// bom
+
+// window.location.pathname
+//                 .port
+//                 .href
+//                 .hostname
+//   imp              .replace()
+//                   .assign()
+// console.log(window.location.hostname);
+
+
+// var arr = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
+// var date = new Date()
+// console.log(date.getTimezoneOffset());
+//  var pop = prompt("enter your age","");
+//  var bob = document.getElementById("diss")
+//   if (pop) {
+//     bob.innerHTML= "welcome "+pop
+//   }
+//   else if (bob=="") {
+    
+//    bob.innerHTML="assign a value"
+    
+//   }
+//   else{
+//     bob.innerHTML="cancel"
+//   }
+// 
+// need is month and fullyear
+
+
+// function check() {
+//   var a=document.getElementById('age').style.backgroundColor="red"
+ 
+ 
+  
+// }
+
+// function myage() {
+//   var num1 = Number(document.getElementById("age").value)
+//   var num2 = Number(document.getElementById("pass").value)
+//   var display = document.getElementById("dis")
+//   var cg=(num1+num2)
+//   display.innerHTML=cg
+// }
+
+  // var ar=[1,2,3,4,5]
+  // var arr=ar.filter(x=>x%2==0):
+  // console.log(arr);
+
+
+//   var student= [{name:"gowtham",mark:90},
+//   {name:"moses",mark:95},
+//   {name:"hari",mark:85},
+//   {name:"ps",mark:78},
+//   {name:"dinesh",mark:75}
+// ]
+// var total = student.filter(x=>x.mark>=90)
+// var names=total.map(x=>x.name)
+// console.log(names);
+// console.log(total);
+
+// set(() => {
+//   var pop = prompt("enter your age","");
+//  var bob = document.getElementById("diss")
+//   if (pop) {
+//     bob.innerHTML= "welcome "+pop
+//   }
+//   else if (bob=="") {
+    
+//    bob.innerHTML="assign a value"
+    
+//   }
+//   else{
+//     bob.innerHTML="cancel"
+//   }
+  
+// }, 5000);
+
+
+</script>
+</body>
+</html>
